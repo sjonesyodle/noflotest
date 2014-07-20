@@ -1,0 +1,72 @@
+{
+    "properties": {
+        "name": "somethin fun",
+        "id": "ni2fx",
+        "project": "noflotest",
+        "environment": {
+            "type": "noflo-nodejs"
+        }
+    },
+    "inports": {},
+    "outports": {},
+    "groups": [],
+    "processes": {
+        "filesystem/ReadFile_iu752": {
+            "component": "filesystem/ReadFile",
+            "metadata": {
+                "label": "filesystem/ReadFile",
+                "x": -432,
+                "y": -36
+            }
+        },
+        "core/Output_kjje7": {
+            "component": "core/Output",
+            "metadata": {
+                "label": "core/Output",
+                "x": 36,
+                "y": -252
+            }
+        },
+        "noflotest/lodashfilter_bfj2n": {
+            "component": "noflotest/lodashfilter",
+            "metadata": {
+                "label": "noflotest/lodashfilter",
+                "x": -180,
+                "y": -72
+            }
+        }
+    },
+    "connections": [
+        {
+            "src": {
+                "process": "filesystem/ReadFile_iu752",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "noflotest/lodashfilter_bfj2n",
+                "port": "in"
+            },
+            "metadata": {
+                "route": null
+            }
+        },
+        {
+            "src": {
+                "process": "noflotest/lodashfilter_bfj2n",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "core/Output_kjje7",
+                "port": "in"
+            },
+            "metadata": {}
+        },
+        {
+            "data": "package.json",
+            "tgt": {
+                "process": "filesystem/ReadFile_iu752",
+                "port": "in"
+            }
+        }
+    ]
+}
